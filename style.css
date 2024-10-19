@@ -4,6 +4,7 @@
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
+
 body {
   background: rgb(21, 63, 73);
   color: #fff;
@@ -14,6 +15,7 @@ h1 {
   margin: 100px auto 50px;
   font-weight: 600;
 }
+
 form {
   width: 90%;
   max-width: 600px;
@@ -54,6 +56,7 @@ form button {
 form button:hover {
   background-color: #40434f;
 }
+
 ::placeholder {
   color: #fff;
   font-size: 18px;
@@ -68,14 +71,14 @@ form button:hover {
   border-radius: 4px;
   margin: 10px auto 100px;
   cursor: pointer;
-  display: none;
+  display: none; /* Sembunyikan tombol "Show more" hingga diperlukan */
 }
 
 #search-result {
   width: 80%;
   margin: 100px auto 50px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
 }
 
@@ -84,4 +87,25 @@ form button:hover {
   height: 230px;
   object-fit: cover;
   border-radius: 5px;
+}
+
+/* Media Query untuk Responsivitas */
+@media (max-width: 768px) {
+  #search-result {
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom di layar sedang */
+  }
+}
+
+@media (max-width: 480px) {
+  #search-result {
+    grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+  }
+
+  form {
+    flex-direction: row; /* Tumpuk elemen dalam form */
+  }
+
+  form button {
+    width: 100%; /* Tombol lebar penuh */
+  }
 }
